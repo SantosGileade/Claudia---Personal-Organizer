@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Personal Organizer - Claudia</title>
   <meta name="description" content="Serviços de organização residencial e mental. Organização para crianças, cômodos e organização da mente." />
-  <script src="script.js" defer></script>
+  <link rel="shortcut icon" href="imgs/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
@@ -20,12 +21,12 @@
       </div>
 
       <nav>
-        <a class="nav-link" href="#home">Home</a>
-        <a class="nav-link" href="#services">Serviços</a>
-        <a class="nav-link" href="#portfolio">Portfólio</a>
-        <a class="nav-link" href="#dicas">Dicas</a>
-        <a class="nav-link" href="#sobre">Sobre</a>
-        <a class="nav-link" href="#contato">Contato</a>
+        <a class="bar-nav" href="#home">Home</a>
+        <a class="bar-nav" href="#services">Serviços</a>
+        <a class="bar-nav" href="#portfolio">Portfólio</a>
+        <a class="bar-nav" href="#dicas">Dicas</a>
+        <a class="bar-nav" href="#sobre">Sobre</a>
+        <a class="bar-nav" href="#contato">Contato</a>
         <a class="cta" href="#contato">Solicitar</a>
       </nav>
     </header>
@@ -59,7 +60,7 @@
               <strong>Organização para Crianças</strong>
               <div class="muted" style="font-size:13px">Brinquedos, estudos e rotina</div>
             </div>
-            <hr style="margin:12px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
+            <hr style="margin:12px 0;border:none;border-top:1px solid rgba(0,0,0,0.05)">
             <div>
               <strong>Organização de Cozinha</strong>
               <div class="muted" style="font-size:13px">Fluxo de preparo e armazenamento</div>
@@ -78,7 +79,7 @@
         <div class="services">
           <div class="card">
             <div style="display:flex;gap:10px;align-items:center">
-              <div style="width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#08131a;font-weight:800">C</div>
+              <div style="width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--destaques),var(--destaques-hover));display:flex;align-items:center;justify-content:center;color:#08131a;font-weight:800">C</div>
               <div>
                 <h3>Organização para Crianças</h3>
                 <p class="muted">Organizamos brinquedos, materiais escolares e montamos rotinas visuais fáceis de seguir.</p>
@@ -142,14 +143,13 @@
             <div class="label">Brinquedos — Organização</div>
           </div>
         </div>
-
-        <div style="margin-top:12px" class="muted">Clique nas imagens para ver em tamanho maior.</div>
       </section>
 
       <!-- Testimonials -->
       <section class="testimonials">
         <div style="flex:1">
-          <strong>Depoimento</strong>
+          <strong>Depoimentos</strong>
+          <p style="margin-top:6px">"A Claudia mudou a rotina da nossa casa. Hoje conseguimos manter tudo mais simples e funcional." — Cliente satisfeita</p>
           <p style="margin-top:6px">"A Claudia mudou a rotina da nossa casa. Hoje conseguimos manter tudo mais simples e funcional." — Cliente satisfeita</p>
         </div>
         <div style="width:160px;text-align:right">
@@ -180,10 +180,10 @@
       <section id="sobre" style="margin-top:20px">
         <h2>Sobre</h2>
         <div style="display:flex;gap:12px;align-items:center;margin-top:8px">
-          <div style="width:120px;height:120px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#08131a;font-weight:800">(Foto)</div>
+          <div style="width:120px;height:120px;border-radius:12px;background:linear-gradient(135deg,var(--destaques),var(--destaques-hover));display:flex;align-items:center;justify-content:center;color:#08131a;font-weight:800">(Foto)</div>
           <div>
             <h3>Claudia</h3>
-            <p class="muted">Personal Organizer com foco em soluções práticas e empáticas. Atua há X anos ajudando famílias a reduzir estresse e ganhar tempo.</p>
+            <p class="muted">Personal Organizer com foco em soluções práticas e empáticas. Atua há 2 anos ajudando famílias a reduzir estresse e ganhar tempo.</p>
             <div style="margin-top:8px">
               <strong>Atua em:</strong> Residências | Escritórios | Consultorias online
             </div>
@@ -198,16 +198,16 @@
           <div class="card">
             <form id="contactForm">
               <label for="nome">Nome</label>
-              <input id="nome" name="nome" required />
+              <input id="nome" name="nome" required placeholder="Digite seu nome:" minlength="3"/>
 
               <div class="row-two">
                 <div>
                   <label for="telefone">Telefone / WhatsApp</label>
-                  <input id="telefone" name="telefone" placeholder="(21) 9XXXX-XXXX" required />
+                  <input id="telefone" name="telefone" placeholder="(21) 9XXXX-XXXX" required minlength="9"  maxlength="11"/>
                 </div>
                 <div>
                   <label for="email">E-mail</label>
-                  <input id="email" name="email" type="email" placeholder="seu@email.com" />
+                  <input id="email" name="email" type="email" placeholder="seu@email.com" minlength="10"/>
                 </div>
               </div>
 
@@ -231,10 +231,10 @@
 
           <div class="card">
             <h3>Atendimento</h3>
-            <p class="muted">Substitua as informações abaixo pelos dados reais:</p>
-            <p style="margin-top:8px"><strong>Telefone / WhatsApp:</strong> <span id="phonePlaceholder">(21) 98190-5892</span></p>
-            <p><strong>E-mail:</strong> <span id="emailPlaceholder">gileadesantos2004@gmail.com</span></p>
-            <p><strong>Área de atendimento:</strong> São João de Meriti - RJ (exemplo)</p>
+            <p style="margin-top:8px"><strong>Telefone / WhatsApp:</strong> <span id="phonePlaceholder">(21) 98304-1732</span></p>
+            <!-- <p><strong>E-mail:</strong> <span id="emailPlaceholder">gileadesantos2004@gmail.com</span></p> -->
+            <p><strong>E-mail:</strong> <span id="emailPlaceholder">dinha8146@gmail.com</span></p>
+            <p><strong>Área de atendimento:</strong> Saquarema - RJ</p>
             <div style="margin-top:10px">
               <a class="nav-link" href="#portfolio">Ver Portfólio</a>
             </div>
@@ -252,7 +252,7 @@
   <!-- Modal for portfolio preview -->
   <div id="modal" class="modal" role="dialog" aria-hidden="true">
     <div class="inner">
-      <div style="display:flex;justify-content:space-between;align-items:center">
+      <div class="modal-header">
         <strong id="modalTitle"></strong>
         <button class="close-btn" id="closeModal">Fechar ✕</button>
       </div>
@@ -261,9 +261,9 @@
       </div>
     </div>
   </div>
-  <button id="btn-topo" title="Voltar ao topo" href="#home">↑</button>
 
+  <button id="btn-topo" title="Voltar ao topo">↑</button>
 
-
+  <a href="admin/admin.html">Tela admin (em desenvolvimento)</a>
 </body>
 </html>

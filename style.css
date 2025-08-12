@@ -1,11 +1,11 @@
 :root {
-  --bg-light: #FAF8F4; /* fundo principal claro */
-  --bg-alt: #F0ECE6; /* fundo alternativo */
-  --card: #ffffff; /* fundo dos cards */
-  --text: #4B3B2A; /* texto principal */
-  --muted: #7A6E5A; /* texto secundário */
-  --accent: #C49A6C; /* destaque */
-  --accent-2: #E2C79A; /* destaque hover */
+  --fundo-claro: #FAF8F4; 
+  --fundo-alternativo: #F0ECE6; 
+  --cards: #ffffff; 
+  --textos: #4B3B2A; 
+  --texto_secundario: #7A6E5A; 
+  --destaques: #C49A6C; 
+  --destaques-hover: #E2C79A;
   --radius: 14px;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
@@ -14,14 +14,19 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background: var(--bg-light);
-  color: var(--text);
+  background: var(--fundo-claro);
+  color: var(--textos);
   line-height: 1.45;
 }
 
@@ -55,7 +60,7 @@ header {
   width: 64px;
   height: 64px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: linear-gradient(135deg, var(--destaques), var(--destaques-hover));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,20 +79,33 @@ nav {
   align-items: center;
 }
 
+/* styling for the nav links (your HTML uses class 'bar-nav') */
+.bar-nav {
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: var(--texto_secundario);
+  font-weight: 600;
+}
+
+.bar-nav:hover {
+  background: var(--destaques-hover);
+  color: var(--textos);
+}
+
 .nav-link {
   padding: 8px 12px;
   border-radius: 10px;
-  color: var(--muted);
+  color: var(--texto_secundario);
   font-weight: 600;
 }
 
 .nav-link:hover {
-  background: var(--accent-2);
-  color: var(--text);
+  background: var(--destaques-hover);
+  color: var(--textos);
 }
 
 .cta {
-  background: var(--accent);
+  background: var(--destaques);
   padding: 10px 14px;
   border-radius: 12px;
   color: white;
@@ -101,13 +119,13 @@ nav {
   gap: 28px;
   align-items: center;
   margin-top: 22px;
-  background: var(--bg-light);
+  background: var(--fundo-claro);
   padding: 28px;
   border-radius: var(--radius);
 }
 
 .hero-card {
-  background: var(--card);
+  background: var(--cards);
   padding: 28px;
   border-radius: var(--radius);
   box-shadow: 0 6px 20px rgba(0,0,0,0.05);
@@ -119,7 +137,7 @@ nav {
 }
 
 .hero p {
-  color: var(--muted);
+  color: var(--texto_secundario);
   margin-top: 12px;
 }
 
@@ -135,13 +153,13 @@ nav {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 22px;
-  background: var(--bg-alt);
+  background: var(--fundo-alternativo);
   padding: 28px;
   border-radius: var(--radius);
 }
 
 .card {
-  background: var(--card);
+  background: var(--cards);
   padding: 16px;
   border-radius: 12px;
   border: 1px solid rgba(0,0,0,0.05);
@@ -153,14 +171,14 @@ nav {
 }
 
 .card p {
-  color: var(--muted);
+  color: var(--texto_secundario);
   font-size: 14px;
 }
 
 /* Portfolio */
 .portfolio {
   margin-top: 28px;
-  background: var(--bg-light);
+  background: var(--fundo-claro);
   padding: 28px;
   border-radius: var(--radius);
 }
@@ -201,7 +219,7 @@ nav {
   margin-top: 26px;
   padding: 16px;
   border-radius: 12px;
-  background: var(--bg-alt);
+  background: var(--fundo-alternativo);
   display: flex;
   gap: 12px;
   align-items: center;
@@ -209,7 +227,7 @@ nav {
 
 .testimonials p {
   margin: 0;
-  color: var(--muted);
+  color: var(--texto_secundario);
 }
 
 /* Contact */
@@ -220,9 +238,10 @@ form {
 
 label {
   font-size: 13px;
-  color: var(--muted);
+  color: var(--texto_secundario);
 }
 
+/* fixed typo: textarea (was textosarea) */
 input, textarea, select {
   padding: 10px;
   border-radius: 8px;
@@ -238,7 +257,7 @@ input, textarea, select {
 }
 
 .submit {
-  background: var(--accent);
+  background: var(--destaques);
   color: white;
   padding: 12px;
   border-radius: 10px;
@@ -248,54 +267,60 @@ input, textarea, select {
 }
 
 .submit:hover {
-  background: var(--accent-2);
+  background: var(--destaques-hover);
 }
 
 /* Footer */
 footer {
   margin-top: 38px;
   padding: 18px 0;
-  background: var(--text);
+  background: var(--textos);
   color: white;
   text-align: center;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Responsive */
-@media (max-width:980px) {
+@media (max-width:768px) {
   .hero {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
+    text-align: center;
   }
-  .services {
-      grid-template-columns: repeat(2,1fr);
-  }
-  .grid {
-      grid-template-columns: repeat(2,1fr);
-  }
-  .thumb img {
-      height: 160px;
-  }
-}
 
-@media (max-width:560px) {
+  .services, .grid {
+    grid-template-columns: 1fr;
+  }
+
   nav {
-      display: none;
-  }
-  header {
-      gap: 12px;
-  }
-  .services {
-      grid-template-columns: 1fr;
-  }
-  .grid {
-      grid-template-columns: 1fr;
+    display: none; /* ou transformar em menu hambúrguer depois */
   }
 }
 
+@media (max-width:480px) {
+  body {
+    font-size: 15px;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+}
+
+/* Back to top button (same id you used) */
 #btn-topo {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: var(--accent);
+  background: var(--destaques);
   color: white;
   border: none;
   padding: 12px 16px;
@@ -308,5 +333,64 @@ footer {
 }
 
 #btn-topo:hover {
-  background: var(--accent-2);
+  background: var(--destaques-hover);
+}
+
+/* Modal (keeps image background transparent and header readable) */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 9999;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal .inner {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  background: transparent; /* só a imagem */
+}
+
+.modal img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* header inside modal (overlay) */
+.modal .modal-header {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(0,0,0,0.5); /* fundo escuro translúcido */
+  color: #fff;
+  border-radius: 8px;
+}
+
+.modal .modal-header h2,
+.modal .modal-header strong {
+  margin: 0;
+  font-size: 18px;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
 }

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="shortcut icon" href="/imgs/favicon.png" type="image/x-icon">
+    <script src="admin.js" defer></script>
+    <title>Admin - Personal Organizer</title>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="logo-section">
+            <div class="logo-icon">📋</div>
+            <div class="logo-text">
+                <h1>Personal Organizer</h1>
+                <p>Painel Administrativo</p>
+            </div>
+        </div>
+        <div class="quick-stats">
+            <div class="mini-stat">
+                <div class="mini-stat-number" id="todayCount">3</div>
+                <div class="mini-stat-label">Hoje</div>
+            </div>
+            <div class="mini-stat">
+                <div class="mini-stat-number" id="weekCount">12</div>
+                <div class="mini-stat-label">Semana</div>
+            </div>
+            <div class="mini-stat">
+                <div class="mini-stat-number" id="monthCount">45</div>
+                <div class="mini-stat-label">Mês</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="layout-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Quick Actions Widget -->
+            <div class="widget">
+                <div class="widget-header">
+                    <div class="widget-title">⚡ Ações Rápidas</div>
+                </div>
+                <div class="widget-content">
+                    <button class="action-btn" onclick="openModal()">
+                        ➕ Novo Agendamento
+                    </button>
+                    <button class="action-btn" onclick="showAllAppointments()">
+                        📋 Ver Todos
+                    </button>
+                    <!-- <button class="action-btn" onclick="generateReport()">
+                        📊 Relatório
+                    </button> -->
+                </div>
+            </div>
+
+            <!-- Today's Appointments Widget -->
+            <div class="widget">
+                <div class="widget-header">
+                    <div class="widget-title">📍 Agendamentos de Hoje</div>
+                </div>
+                <div class="widget-content" id="todayAppointments">
+                    <div class="appointment-item">
+                        <div class="appointment-header">
+                            <div class="appointment-time">09:00</div>
+                        </div>
+                        <div class="appointment-name">Maria Silva</div>
+                        <div class="appointment-service">Organização de Closet</div>
+                        <div class="appointment-actions">
+                            <button class="action-btn-small btn-edit" onclick="editAppointment(1)">Editar</button>
+                            <button class="action-btn-small btn-complete"
+                                onclick="completeAppointment(1)">Concluir</button>
+                            <button class="action-btn-small btn-cancel" onclick="cancelAppointment(1)">Cancelar</button>
+                        </div>
+                    </div>
+
+                    <div class="appointment-item">
+                        <div class="appointment-header">
+                            <div class="appointment-time">14:00</div>
+                        </div>
+                        <div class="appointment-name">João Santos</div>
+                        <div class="appointment-service">Organização de Escritório</div>
+                        <div class="appointment-actions">
+                            <button class="action-btn-small btn-edit" onclick="editAppointment(2)">Editar</button>
+                            <button class="action-btn-small btn-complete"
+                                onclick="completeAppointment(2)">Concluir</button>
+                            <button class="action-btn-small btn-cancel" onclick="cancelAppointment(2)">Cancelar</button>
+                        </div>
+                    </div>
+
+                    <div class="appointment-item">
+                        <div class="appointment-header">
+                            <div class="appointment-time">16:30</div>
+                        </div>
+                        <div class="appointment-name">Ana Costa</div>
+                        <div class="appointment-service">Organização de Cozinha</div>
+                        <div class="appointment-actions">
+                            <button class="action-btn-small btn-edit" onclick="editAppointment(3)">Editar</button>
+                            <button class="action-btn-small btn-complete"
+                                onclick="completeAppointment(3)">Concluir</button>
+                            <button class="action-btn-small btn-cancel" onclick="cancelAppointment(3)">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Calendar Content -->
+        <div class="main-content">
+            <div class="calendar-header">
+                <div class="month-navigator">
+                    <button class="nav-arrow" onclick="previousMonth()">◀</button>
+                    <div class="current-month" id="currentMonth">Novembro 2024</div>
+                    <button class="nav-arrow" onclick="nextMonth()">▶</button>
+                </div>
+                <button class="new-appointment-btn" onclick="openModal()">
+                    ➕ Novo Agendamento
+                </button>
+            </div>
+
+            <div class="calendar-container">
+                <div class="calendar-weekdays">
+                    <div class="weekday">Dom</div>
+                    <div class="weekday">Seg</div>
+                    <div class="weekday">Ter</div>
+                    <div class="weekday">Qua</div>
+                    <div class="weekday">Qui</div>
+                    <div class="weekday">Sex</div>
+                    <div class="weekday">Sáb</div>
+                </div>
+
+                <div class="calendar-days" id="calendarGrid">
+                    <!-- Calendar days will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Overlay para modal central -->
+   <div class="overlay" id="overlay"></div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="appointmentModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Novo Agendamento</div>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="appointmentForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Nome do Cliente:</label>
+                            <input type="text" class="form-input" id="clientName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Telefone:</label>
+                            <input type="tel" class="form-input" id="clientPhone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email:</label>
+                        <input type="email" class="form-input" id="clientEmail">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Tipo de Serviço:</label>
+                            <select class="form-input" id="serviceType" required>
+                                <option value="">Selecione...</option>
+                                <option value="closet">Organização de Closet</option>
+                                <option value="kitchen">Organização de Cozinha</option>
+                                <option value="office">Organização de Escritório</option>
+                                <option value="bedroom">Organização de Quarto</option>
+                                <option value="living">Organização de Sala</option>
+                                <option value="pantry">Organização de Despensa</option>
+                                <option value="garage">Organização de Garagem</option>
+                                <option value="moving">Organização para Mudança</option>
+                                <option value="other">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Data:</label>
+                            <input type="date" class="form-input" id="appointmentDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Horário:</label>
+                        <input type="time" class="form-input" id="appointmentTime" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Endereço:</label>
+                        <textarea class="form-input form-textarea" id="clientAddress" rows="2"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Observações:</label>
+                        <textarea class="form-input form-textarea" id="observations" rows="3"
+                            placeholder="Detalhes do serviço, preferências do cliente, etc."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="form-btn secondary" onclick="closeModal()">Cancelar</button>
+                        <button type="submit" class="form-btn primary">Salvar Agendamento</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </head>
+</body>
+</html>
