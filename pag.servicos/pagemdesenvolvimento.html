@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Em Desenvolvimento - Claudia Personal Organizer</title>
+    <style>
+        :root {
+            --fundo-claro: #FAF8F4;
+            --cards: #ffffff;
+            --textos: #4B3B2A;
+            --texto_secundario: #7A6E5A;
+            --destaques: #C49A6C;
+            --destaques-hover: #E2C79A;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--fundo-claro);
+            color: var(--textos);
+            font-family: inherit;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--destaques), var(--destaques-hover));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 24px;
+            margin: 0 auto 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: var(--textos);
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--texto_secundario);
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: var(--cards);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 16px;
+            color: var(--texto_secundario);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .cta {
+            background: var(--destaques);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta:hover {
+            background: var(--destaques-hover);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: var(--texto_secundario);
+        }
+
+        /* Animação para o ícone */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .icon {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 16px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">PO</div>
+        
+        <h1>Página em Desenvolvimento</h1>
+        <div class="subtitle">Claudia - Personal Organizer</div>
+
+        <div class="card">
+            <div class="icon">🚧</div>
+            
+            <div class="message">
+                <strong>Esta página está sendo construída!</strong><br><br>
+                Estamos trabalhando para trazer o melhor conteúdo sobre organização para você. 
+                Em breve, esta seção estará disponível com informações detalhadas sobre nossos serviços.
+            </div>
+
+            <a href="/index.html" class="cta">← Voltar ao Site Principal</a>
+        </div>
+
+        <div class="footer">
+            © 2025 Claudia - Personal Organizer • Transformando caos em harmonia
+        </div>
+    </div>
+</body>
+</html>

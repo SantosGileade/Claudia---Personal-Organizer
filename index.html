@@ -1,14 +1,17 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Personal Organizer - Claudia</title>
-  <meta name="description" content="Serviços de organização residencial e mental. Organização para crianças, cômodos e organização da mente." />
-  <link rel="shortcut icon" href="imgs/favicon.png" type="image/x-icon">
+  <meta name="description"
+    content="Serviços de organização residencial e mental. Organização para crianças, cômodos e organização da mente." />
+    <script src="script.js" defer></script>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <link rel="shortcut icon" href="imgs/favicon.png" type="image/x-icon">
 </head>
+
 <body>
   <div class="container">
     <header>
@@ -34,8 +37,8 @@
     <main>
       <section class="hero" id="home">
         <div class="hero-card">
-          <h1>Organizando sua casa, sua vida e sua mente</h1>
-          <p>Serviços personalizados para crianças, cômodos e práticas de organização mental. Atendimentos presenciais e consultorias remotas.</p>
+          <h1>ORGANIZE & VIVA</h1>
+          <p>Organização inteligente para ambientes mais funcionais e agradáveis</p>
 
           <div class="actions">
             <a class="cta" href="#contato">Peça um orçamento</a>
@@ -53,21 +56,22 @@
         </div>
 
         <aside>
-          <div class="card">
+          <div class="popular-services-card">
             <h3>Serviços Populares</h3>
             <p class="muted">Ideal para quem precisa de uma solução rápida e com ótimo custo-benefício.</p>
-            <div style="margin-top:12px">
+            <div class="service-item">
               <strong>Organização para Crianças</strong>
-              <div class="muted" style="font-size:13px">Brinquedos, estudos e rotina</div>
+              <div class="muted service-description">Brinquedos, estudos e rotina</div>
             </div>
-            <hr style="margin:12px 0;border:none;border-top:1px solid rgba(0,0,0,0.05)">
-            <div>
+            <hr class="service-divider">
+            <div class="service-item">
               <strong>Organização de Cozinha</strong>
-              <div class="muted" style="font-size:13px">Fluxo de preparo e armazenamento</div>
+              <div class="muted service-description">Fluxo de preparo e armazenamento</div>
             </div>
-            <div style="margin-top:12px;display:flex;gap:10px">
+            <div class="service-actions">
               <button class="cta" onclick="location.href='#contato'">Agendar</button>
-              <button class="nav-link" onclick="alert('Substitua este comportamento por integração com WhatsApp ou backend')">Consultar</button>
+              <button class="nav-link"
+                onclick="alert('Substitua este comportamento por integração com WhatsApp ou backend')">Consultar</button>
             </div>
           </div>
         </aside>
@@ -75,71 +79,129 @@
 
       <!-- Services -->
       <section id="services">
-        <h2 style="margin-top:28px">Nossos Serviços</h2>
+        <h2>Nossos Serviços</h2>
         <div class="services">
-          <div class="card">
-            <div style="display:flex;gap:10px;align-items:center">
-              <div style="width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--destaques),var(--destaques-hover));display:flex;align-items:center;justify-content:center;color:#08131a;font-weight:800">C</div>
-              <div>
-                <h3>Organização para Crianças</h3>
-                <p class="muted">Organizamos brinquedos, materiais escolares e montamos rotinas visuais fáceis de seguir.</p>
-              </div>
-            </div>
-          </div>
 
-          <div class="card">
-            <div style="display:flex;gap:10px;align-items:center">
-              <div style="width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,#7dd3fc,#60a5fa);display:flex;align-items:center;justify-content:center;color:#08131a;font-weight:800">M</div>
-              <div>
-                <h3>Organização da Mente</h3>
-                <p class="muted">Consultorias focadas em reduzir carga mental: listas, planejamento semanal e organização emocional.</p>
-              </div>
+          <a href="/pag.servicos/pagemdesenvolvimento.html" class="card" style="background-image:url('imgs/ORGresidencial.png')">
+            <div class="overlay">
+              <h3>Organização residencial</h3>
+              <p class="muted">
+                Organizamos closet e guarda-roupa / Cozinha e despensa / Área de serviço e lavanderia / Quarto infantil
+                e briquedoteca / Sala de estar e home-office.
+              </p>
             </div>
-          </div>
+          </a>
 
-          <div class="card">
-            <div style="display:flex;gap:10px;align-items:center">
-              <div style="width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,#86efac,#4ade80);display:flex;align-items:center;justify-content:center;color:#08131a;font-weight:800">C</div>
-              <div>
-                <h3>Organização de Cômodos</h3>
-                <p class="muted">Cozinha, sala, banheiro, quartos e escritório — soluções pensadas para facilitar o dia a dia.</p>
+          <a href="/pag.servicos/pagemdesenvolvimento.html" class="card" style="background-image:url('imgs/ORGresidencial.png')">
+            <div class="card" style="background-image:url('imgs/ORGcorporativo.png')">
+              <div class="overlay">
+                <h3>Comercial e corporativo</h3>
+                <p class="muted">
+                  Escritórios / Arquivos e documentos / Estoques e almoxarifados / Consultórios.
+                </p>
               </div>
             </div>
-          </div>
+          </a>
+
+          <a href="/pag.servicos/pagemdesenvolvimento.html" class="card" style="background-image:url('imgs/ORGresidencial.png')">
+            <div class="card" style="background-image:url('imgs/ORGmomentosespeciais.png')">
+              <div class="overlay">
+                <h3>Momentos especiais</h3>
+                <p class="muted">
+                  Enxoval para noivas / Preparação de casa para recém casados / Organização para chegada de bebês.
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <a href="/pag.servicos/pagemdesenvolvimento.html" class="card" style="background-image:url('imgs/ORGresidencial.png')">
+            <div class="card" style="background-image:url('imgs/ORGrotina.png')">
+              <div class="overlay">
+                <h3>Organização de rotina</h3>
+                <p class="muted">
+                  Planejamento semanal da casa / Rotina de limpeza e manutenção / Agendas de compras e reposição.
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <a href="/pag.servicos/pagemdesenvolvimento.html" class="card" style="background-image:url('imgs/ORGresidencial.png')">
+            <div class="card" style="background-image:url('imgs/ORGjovens.png')">
+              <div class="overlay">
+                <h3>Organização Jovem</h3>
+                <p class="muted">
+                  Dicas e rotinas para deixar o quarto organizado / Estudos e tempo mais organizados / Organização de
+                  quartos e espaço de estudo / Organização de mochila e materiais / Como manter a rotina sem perder o
+                  tempo livre.
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <a href="/pag.servicos/pagemdesenvolvimento.html" class="card" style="background-image:url('imgs/ORGresidencial.png')">
+            <div class="card" style="background-image:url('imgs/ORGdesapego.png')">
+              <div class="overlay">
+                <h3>Desapego e utilidade</h3>
+                <p class="muted">
+                  Auxílio no processo de descarte de itens que não fazem mais sentido / Com foco em manter apenas o que
+                  gera utilidade e bem-estar.
+                </p>
+              </div>
+            </div>
+          </a>
+
         </div>
       </section>
 
       <!-- Portfolio -->
       <section id="portfolio" class="portfolio">
-        <h2 style="margin-top:20px">Portfólio</h2>
+        <h2>Portfólio</h2>
         <div class="grid">
-          <div class="thumb" data-title="Cozinha - Antes/Depois" data-img="https://images.unsplash.com/photo-1582582494707-6b1f8cfb6a4a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-            <img src="https://images.unsplash.com/photo-1582582494707-6b1f8cfb6a4a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Cozinha antes depois">
+          <div class="thumb" data-title="Cozinha - Antes/Depois"
+            data-img="https://images.unsplash.com/photo-1582582494707-6b1f8cfb6a4a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+            <img
+              src="https://images.unsplash.com/photo-1582582494707-6b1f8cfb6a4a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+              alt="Cozinha antes depois">
             <div class="label">Cozinha — Antes / Depois</div>
           </div>
 
-          <div class="thumb" data-title="Quarto Infantil - Antes/Depois" data-img="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Quarto infantil">
+          <div class="thumb" data-title="Quarto Infantil - Antes/Depois"
+            data-img="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+            <img
+              src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+              alt="Quarto infantil">
             <div class="label">Quarto Infantil — Antes / Depois</div>
           </div>
 
-          <div class="thumb" data-title="Home Office - Organização" data-img="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-            <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Home office">
+          <div class="thumb" data-title="Home Office - Organização"
+            data-img="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+            <img
+              src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+              alt="Home office">
             <div class="label">Home Office — Organização</div>
           </div>
 
-          <div class="thumb" data-title="Banheiro - Soluções" data-img="https://images.unsplash.com/photo-1581579189044-9f0b2e4f6f29?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-            <img src="https://images.unsplash.com/photo-1581579189044-9f0b2e4f6f29?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Banheiro organizado">
+          <div class="thumb" data-title="Banheiro - Soluções"
+            data-img="https://images.unsplash.com/photo-1581579189044-9f0b2e4f6f29?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+            <img
+              src="https://images.unsplash.com/photo-1581579189044-9f0b2e4f6f29?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+              alt="Banheiro organizado">
             <div class="label">Banheiro — Soluções</div>
           </div>
 
-          <div class="thumb" data-title="Sala em ordem" data-img="https://images.unsplash.com/photo-1505691723518-36a5f4383b31?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-            <img src="https://images.unsplash.com/photo-1505691723518-36a5f4383b31?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Sala organizada">
+          <div class="thumb" data-title="Sala em ordem"
+            data-img="https://images.unsplash.com/photo-1505691723518-36a5f4383b31?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+            <img
+              src="https://images.unsplash.com/photo-1505691723518-36a5f4383b31?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+              alt="Sala organizada">
             <div class="label">Sala — Antes / Depois</div>
           </div>
 
-          <div class="thumb" data-title="Organização de Brinquedos" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Brinquedos organizados">
+          <div class="thumb" data-title="Organização de Brinquedos"
+            data-img="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+            <img
+              src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+              alt="Brinquedos organizados">
             <div class="label">Brinquedos — Organização</div>
           </div>
         </div>
@@ -149,8 +211,10 @@
       <section class="testimonials">
         <div style="flex:1">
           <strong>Depoimentos</strong>
-          <p style="margin-top:6px">"A Claudia mudou a rotina da nossa casa. Hoje conseguimos manter tudo mais simples e funcional." — Cliente satisfeita</p>
-          <p style="margin-top:6px">"A Claudia mudou a rotina da nossa casa. Hoje conseguimos manter tudo mais simples e funcional." — Cliente satisfeita</p>
+          <p>"A Claudia mudou a rotina da nossa casa. Hoje conseguimos manter tudo mais simples e funcional." — Cliente
+            satisfeita</p>
+          <p>"Profissional incrível! Conseguiu organizar nosso closet de uma forma que nunca imaginamos ser possível." —
+            Família Silva</p>
         </div>
         <div style="width:160px;text-align:right">
           <small class="muted">Atendimentos presenciais e online</small>
@@ -159,17 +223,19 @@
 
       <!-- Dicas -->
       <section id="dicas">
-        <h2 style="margin-top:24px">Dicas rápidas</h2>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px">
-          <div class="card">
+        <h2>Dicas rápidas</h2>
+        <div class="dicas-container">
+          <div class="dica-card">
             <h4>5 minutos por dia</h4>
-            <p class="muted">Reserve 5 minutos ao final do dia para guardar itens soltos — isso evita acumulados gigantes no fim de semana.</p>
+            <p class="muted">Reserve 5 minutos ao final do dia para guardar itens soltos — isso evita acúmulos gigantes
+              no fim de semana.</p>
           </div>
-          <div class="card">
+          <div class="dica-card">
             <h4>Zona de uso</h4>
-            <p class="muted">Organize itens pelo local de uso: panela perto do fogão, materiais escolares acessíveis.</p>
+            <p class="muted">Organize itens pelo local de uso: panela perto do fogão, materiais escolares acessíveis.
+            </p>
           </div>
-          <div class="card">
+          <div class="dica-card">
             <h4>Caixas rotuladas</h4>
             <p class="muted">Use caixas rotuladas para brinquedos e itens sazonais — facilita na hora de procurar.</p>
           </div>
@@ -177,13 +243,14 @@
       </section>
 
       <!-- About / Sobre -->
-      <section id="sobre" style="margin-top:20px">
+      <section id="sobre">
         <h2>Sobre</h2>
-        <div style="display:flex;gap:12px;align-items:center;margin-top:8px">
-          <div style="width:120px;height:120px;border-radius:12px;background:linear-gradient(135deg,var(--destaques),var(--destaques-hover));display:flex;align-items:center;justify-content:center;color:#08131a;font-weight:800">(Foto)</div>
-          <div>
+        <div class="sobre-content">
+          <div class="sobre-foto">(Foto)</div>
+          <div class="sobre-info">
             <h3>Claudia</h3>
-            <p class="muted">Personal Organizer com foco em soluções práticas e empáticas. Atua há 2 anos ajudando famílias a reduzir estresse e ganhar tempo.</p>
+            <p class="muted">Personal Organizer com foco em soluções práticas e empáticas. Atua há 2 anos ajudando
+              famílias a reduzir estresse e ganhar tempo.</p>
             <div style="margin-top:8px">
               <strong>Atua em:</strong> Residências | Escritórios | Consultorias online
             </div>
@@ -192,50 +259,54 @@
       </section>
 
       <!-- Contact -->
-      <section id="contato" style="margin-top:22px">
+      <section id="contato">
         <h2>Contato</h2>
-        <div style="display:grid;grid-template-columns:1fr 360px;gap:16px;margin-top:8px">
-          <div class="card">
+        <div class="contato-grid">
+          <div class="contato-card">
             <form id="contactForm">
               <label for="nome">Nome</label>
-              <input id="nome" name="nome" required placeholder="Digite seu nome:" minlength="3"/>
+              <input id="nome" name="nome" required placeholder="Digite seu nome:" minlength="3" />
 
               <div class="row-two">
                 <div>
                   <label for="telefone">Telefone / WhatsApp</label>
-                  <input id="telefone" name="telefone" placeholder="(21) 9XXXX-XXXX" required minlength="9"  maxlength="11"/>
+                  <input id="telefone" name="telefone" placeholder="(21) 9XXXX-XXXX" required minlength="9"
+                    maxlength="11" />
                 </div>
                 <div>
                   <label for="email">E-mail</label>
-                  <input id="email" name="email" type="email" placeholder="seu@email.com" minlength="10"/>
+                  <input id="email" name="email" type="email" placeholder="seu@email.com" minlength="10" />
                 </div>
               </div>
 
               <label for="servico">Serviço desejado</label>
               <select id="servico" name="servico">
-                <option>Organização para Crianças</option>
-                <option>Organização da Mente</option>
-                <option>Organização de Cômodos</option>
+                <option>Organização Residencial</option>
+                <option>Organização Comercial e Corporativo</option>
+                <option>Momentos Especiais</option>
+                <option>Organização de Rotina</option>
+                <option>Organização Jovem</option>
+                <option>Desapego e Utilidade</option>
                 <option>Orçamento Personalizado</option>
               </select>
 
               <label for="mensagem">Mensagem</label>
-              <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva seu objetivo, local e melhor horário"></textarea>
+              <textarea id="mensagem" name="mensagem" rows="4"
+                placeholder="Descreva seu objetivo, local e melhor horário"></textarea>
 
-              <div style="margin-top:8px;display:flex;gap:8px">
+              <div class="form-actions">
                 <button type="submit" class="submit">Enviar</button>
                 <button type="button" class="nav-link" id="whatsappBtn">Abrir WhatsApp</button>
               </div>
             </form>
           </div>
 
-          <div class="card">
+          <div class="contato-card contato-info">
             <h3>Atendimento</h3>
-            <p style="margin-top:8px"><strong>Telefone / WhatsApp:</strong> <span id="phonePlaceholder">(21) 98304-1732</span></p>
-            <!-- <p><strong>E-mail:</strong> <span id="emailPlaceholder">gileadesantos2004@gmail.com</span></p> -->
+            <p><strong>Telefone / WhatsApp:</strong> <span id="phonePlaceholder">(21) 98304-1732</span></p>
             <p><strong>E-mail:</strong> <span id="emailPlaceholder">dinha8146@gmail.com</span></p>
             <p><strong>Área de atendimento:</strong> Saquarema - RJ</p>
-            <div style="margin-top:10px">
+            <div style="margin-top:16px">
               <a class="nav-link" href="#portfolio">Ver Portfólio</a>
             </div>
           </div>
@@ -265,4 +336,5 @@
   <button id="btn-topo" title="Voltar ao topo">↑</button>
 
 </body>
+
 </html>

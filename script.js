@@ -1,119 +1,108 @@
-// script.js - clean and focused on modal, scroll, form and whatsapp.
-// Keep this file linked as <script src="script.js" defer></script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-document.addEventListener('DOMContentLoaded', function () {
-  // Set current year
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // Elements
-  const modal = document.getElementById('modal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalImg = document.getElementById('modalImg');
-  const closeModalBtn = document.getElementById('closeModal');
-  const btnTopo = document.getElementById('btn-topo');
-
-  // Open modal when clicking a thumb (uses data-img and data-title)
-  document.querySelectorAll('.thumb').forEach(thumb => {
-    thumb.addEventListener('click', function (e) {
-      const imgSrc = thumb.getAttribute('data-img') || thumb.querySelector('img')?.src;
-      const title = thumb.getAttribute('data-title') || thumb.querySelector('img')?.alt || '';
-      if (!imgSrc) return;
-
-      modalImg.src = imgSrc;
-      modalImg.alt = title || 'Imagem';
-      if (modalTitle) modalTitle.textContent = title || '';
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-      // block background scroll
-      document.body.style.overflow = 'hidden';
-      // focus for accessibility
-      closeModalBtn?.focus();
+    // Portfolio modal functionality
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalImg = document.getElementById('modalImg');
+    const closeModal = document.getElementById('closeModal');
+    
+    // Open modal when clicking on portfolio images
+    document.querySelectorAll('.thumb').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const title = thumb.getAttribute('data-title');
+        const imgSrc = thumb.getAttribute('data-img');
+        
+        modalTitle.textContent = title;
+        modalImg.src = imgSrc;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      });
     });
-  });
-
-  // Close function
-  function closeModal() {
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    // clear image src to free memory
-    if (modalImg) modalImg.src = '';
-  }
-
-  // Close button
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener('click', closeModal);
-  }
-
-  // Click outside image -> close
-  if (modal) {
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) closeModal();
+    
+    // Close modal
+    closeModal.addEventListener('click', () => {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
     });
-  }
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    });
 
-  // Close on Escape
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && modal.classList.contains('open')) {
-      closeModal();
+    // Back to top button
+    const btnTopo = document.getElementById('btn-topo');
+    
+    if (btnTopo) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          btnTopo.style.display = 'block';
+        } else {
+          btnTopo.style.display = 'none';
+        }
+      });
+      
+      btnTopo.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
     }
-  });
 
-  // Contact form (demo behavior - keeps original logic)
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+    // Form handling
+    const contactForm = document.getElementById('contactForm');
+    const whatsappBtn = document.getElementById('whatsappBtn');
+    
+    contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const nome = document.getElementById('nome')?.value.trim();
-      const tel = document.getElementById('telefone')?.value.trim();
-      const serv = document.getElementById('servico')?.value || '';
-      if (!nome || !tel) { alert('Por favor, preencha nome e telefone.'); return; }
-
-      const assunto = encodeURIComponent('Solicitação de orçamento - ' + serv);
-      const corpo = encodeURIComponent(`Olá, meu nome é ${nome} Telefone: ${tel} Serviço: ${serv} Mensagem: ${document.getElementById('mensagem')?.value || ''}`);
-      window.location.href = `mailto:${document.getElementById('emailPlaceholder')?.textContent || ''}?subject=${assunto}&body=${corpo}`;
+      
+      const formData = new FormData(contactForm);
+      const nome = formData.get('nome');
+      const telefone = formData.get('telefone');
+      const email = formData.get('email');
+      const servico = formData.get('servico');
+      const mensagem = formData.get('mensagem');
+      
+      // Aqui você pode integrar com seu backend ou serviço de email
+      alert(`Obrigada pelo contato, ${nome}! Em breve entraremos em contato.`);
+      
+      // Opcional: enviar para WhatsApp automaticamente
+      const whatsappMessage = `Olá! Meu nome é ${nome}. Gostaria de solicitar o serviço: ${servico}. ${mensagem ? 'Mensagem: ' + mensagem : ''}`;
+      const whatsappUrl = `https://wa.me/5521983041732?text=${encodeURIComponent(whatsappMessage)}`;
+      window.open(whatsappUrl, '_blank');
     });
-  }
-
-  // WhatsApp button (replace phone if needed)
-  const whatsappBtn = document.getElementById('whatsappBtn');
-  if (whatsappBtn) {
-    whatsappBtn.addEventListener('click', function () {
-      const phone = '5521983041732'; // troque aqui se precisar
-      const serv = document.getElementById('servico')?.value || '';
-      const nome = document.getElementById('nome')?.value || 'Cliente';
-      const mensagem = encodeURIComponent(`Olá! Meu nome é ${nome} e quero informações sobre: ${serv}`);
-      if (phone.includes('X')) {
-        alert('Substitua o número de WhatsApp no código pelo número real para abrir automaticamente o WhatsApp.');
-        return;
-      }
-      window.open(`https://wa.me/${phone}?text=${mensagem}`, '_blank');
+    
+    whatsappBtn.addEventListener('click', () => {
+      const whatsappUrl = 'https://wa.me/5521983041732?text=Olá! Gostaria de saber mais sobre os serviços de organização.';
+      window.open(whatsappUrl, '_blank');
     });
-  }
 
-  // Smooth scroll for same-page anchors (JS fallback)
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', function (e) {
-      const targetSelector = this.getAttribute('href');
-      if (!targetSelector || targetSelector === '#' ) return;
-      const target = document.querySelector(targetSelector);
-      if (target) {
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
     });
-  });
 
-  // Back to top button behavior (uses id #btn-topo)
-  window.addEventListener('scroll', function () {
-    if (!btnTopo) return;
-    btnTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
-  });
-
-  if (btnTopo) {
-    btnTopo.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-});
+    // Mobile menu toggle (caso queira implementar depois)
+    // Código para menu hambúrguer pode ser adicionado aqui
