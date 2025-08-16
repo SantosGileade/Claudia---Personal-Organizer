@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/imgs/favicon.png" type="image/x-icon">
+    <title>Organização Residencial</title>
+    <style>
+        :root {
+            --fundo-claro: #FAF8F4;
+            --fundo-alternativo: #F0ECE6;
+            --cards: #ffffff;
+            --textos: #4B3B2A;
+            --texto_secundario: #7A6E5A;
+            --texto_overlay: #c9c1b1;
+            --destaques: #C49A6C;
+            --destaques-hover: #E2C79A;
+            --radius: 14px;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--fundo-claro);
+            color: var(--textos);
+            font-family: var(--font-family);
+        }
+
+        header {
+            background: var(--destaques);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 0 0 var(--radius) var(--radius);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .descricao {
+            background: var(--cards);
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .descricao p {
+            color: var(--texto_secundario);
+            line-height: 1.6;
+        }
+
+        .subservicos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .sub-card {
+            background: var(--cards);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .sub-card:hover {
+            transform: scale(1.05);
+            background: var(--fundo-alternativo);
+        }
+
+        .sub-card h3 {
+            margin: 10px 0 5px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: var(--destaques);
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .galeria img {
+            width: 100%;
+            border-radius: var(--radius);
+            object-fit: cover;
+            height: 180px;
+        }
+
+        .depoimentos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .depoimento {
+            background: var(--cards);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .depoimento strong {
+            display: block;
+            margin-top: 10px;
+            color: var(--destaques);
+        }
+
+        .card {
+            position: relative;
+            height: 220px;
+            border-radius: 12px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            color: white;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            /* garante transição suave ao sair */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            /* zoom suave */
+        }
+
+        .card .overlay {
+            background: rgba(0, 0, 0, 0.383);
+            padding: 15px;
+            border-radius: 0 0 12px 12px;
+            width: 100%;
+            height: 25%;
+            transition: height 0.3s ease, background 0.3s ease;
+            /* transição suave */
+        }
+
+        .card:hover .overlay {
+            background: rgba(0, 0, 0, 0.5);
+            height: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Organização Residencial</h1>
+    </header>
+
+    <main class="container">
+
+        <section class="descricao">
+            <p>
+                A organização residencial transforma sua casa em um espaço funcional e acolhedor.
+                Atuamos em todos os ambientes, desde closets até áreas sociais, para que cada canto
+                seja aproveitado com harmonia, praticidade e bem-estar.
+            </p>
+        </section>
+
+        <section>
+            <h2>Subserviços Disponíveis</h2>
+            <div class="subservicos">
+                <div class="card" style="background-image: url('/imgs/closet.png');"
+                    onclick="proximoPasso('Closet e Guarda-roupa')">
+                    <div class="overlay">
+                        <h3>🏠 Closet e Guarda-roupa</h3>
+                    </div>
+                </div>
+                <div class="card" style="background-image: url('/imgs/despensa.png');" onclick="proximoPasso('Cozinha e Despensa')">
+                    <div class="overlay">
+                        <h3>🍳 Cozinha e Despensa</h3>
+                    </div>
+                </div>
+                <div class="card" style="background-image: url('/imgs/lavanderia.png');" onclick="proximoPasso('Área de Serviço e Lavanderia')">
+                    <div class="overlay">
+                        <h3>🧺 Área de Serviço e Lavanderia</h3>
+                    </div>
+                </div>
+                <div class="card" style="background-image: url('/imgs/quartoinfantil.png');" onclick="proximoPasso('Quarto infantil e Brinquedoteca')">
+                    <div class="overlay">
+                        <h3>👶 Quarto infantil e Brinquedoteca</h3>
+                    </div>
+                </div>
+                <div class="card" style="background-image: url('/imgs/homeoffice.png');" onclick="proximoPasso('Sala de Estar e Home Office')">
+                    <div class="overlay">
+                        <h3>🛋️ Sala de Estar e Home Office</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Como Funciona</h2>
+            <p>
+                Seguimos um processo em etapas: diagnóstico do espaço, planejamento da organização,
+                implementação e acompanhamento. Tudo é feito respeitando seu estilo de vida e objetivos.
+            </p>
+        </section>
+
+        <section>
+            <h2>Pacotes Sugeridos</h2>
+            <ul>
+                <li><strong>🚀 Express:</strong> organização rápida em 1 dia</li>
+                <li><strong>📋 Completo:</strong> projeto de 2 a 3 dias</li>
+                <li><strong>🏆 Premium:</strong> inclui manutenção e revisitas</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        function proximoPasso(opcao) {
+          alert("Você escolheu: " + opcao);
+          // aqui você chama o próximo passo do fluxo
+        }
+      </script>
+</body>
+
+</html>

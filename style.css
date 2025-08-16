@@ -142,9 +142,10 @@ nav {
 
 .hero-card {
   background: var(--cards);
-  padding: 28px;
+  padding: 30px;
   border-radius: var(--radius);
   box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  width: 1000px;
 }
 
 .hero h1 {
@@ -688,13 +689,19 @@ footer {
   background: rgba(255,255,255,0.2);
 }
 
-/* Responsive */
+/* Tablet Landscape ou menor */
 @media (max-width: 1024px) {
   .contato-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Hero mais compacto */
+  .hero-card {
+    max-width: 850px;
+  }
 }
 
+/* Tablets e celulares grandes */
 @media (max-width: 768px) {
   .container {
     padding: 16px;
@@ -703,6 +710,11 @@ footer {
   .hero {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .hero-card {
+    max-width: 650px;
+    padding: 24px;
   }
 
   .services {
@@ -739,6 +751,7 @@ footer {
   }
 }
 
+/* Celulares menores */
 @media (max-width: 480px) {
   body {
     font-size: 15px;
@@ -755,6 +768,7 @@ footer {
 
   .hero-card {
     padding: 20px;
+    max-width: 350px;
   }
 
   .hero h1 {
@@ -777,5 +791,56 @@ footer {
 
   nav {
     display: none;
+  }
+}
+@media (max-width: 375px) {
+  body {
+    font-size: 12px;
+  }
+  
+  .container {
+    padding: 10px;
+  }
+
+  .hero {
+    padding: 18px;
+    margin-top: 12px;
+  }
+
+  .hero-card {
+    padding: 20px;
+    max-width: 320px;
+  }
+
+  .hero h1 {
+    font-size: 23px;
+  }
+  .hero p {
+    font-size: 11px;
+  }
+
+  .hero .actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .row-two {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  nav {
+    display: none;
+  }
+}
+/* Para desktops */
+@media (min-width: 1025px) {
+  .hero-card {
+    max-width: 1000px; /* mais largo no PC */
+    padding: 3rem;
   }
 }
